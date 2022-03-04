@@ -47,8 +47,8 @@ std::vector<int> createArray(int size) {
 }
 
 void arrInput(std::vector<int>& arr) {
-    for (int i = 0; i < arr.size(); ++i) {
-        std::cin >> arr[i];
+    for (int & i : arr) {
+        std::cin >> i;
     }
 }
 
