@@ -70,7 +70,7 @@ bool isPrime(int num) {
 
 int findPrime(std::vector<int>& arr) {
     for (int i = 0; i < arr.size(); ++i) {
-        if(isPrime(arr[i])) // TODO check what's wrong with it
+        if(isPrime(arr[i]))
             return i;
     }
     return -1;
@@ -85,6 +85,7 @@ bool arrDelete(std::vector<int>& arr) {
     for(auto it = arr.begin(); it != arr.end(); ++it) {
         if(*it % 7 == 0) {
             arr.erase(it);
+            --it;
             res = true;
         }
     }
