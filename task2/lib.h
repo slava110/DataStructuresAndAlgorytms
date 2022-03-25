@@ -14,7 +14,7 @@ void insertionSort(int* arr, int size) {
     }
 }
 
-void insertionSortTest(int* arr, int size, int& C, int& M) {
+void insertionSortTest(int* arr, int size, unsigned long long& C, unsigned long long& M) {
     int i, j, temp;
 
     for (i = 0; i < size; ++i) {
