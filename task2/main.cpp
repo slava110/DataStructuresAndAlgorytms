@@ -9,7 +9,7 @@ int main() {
     int* arr = new int[size];
 
     arrInput(arr, size);
-    insertionSort(arr, size);
+    selectionSort(arr, size);
     arrOutput(arr, size);
 
     delete[] arr;
