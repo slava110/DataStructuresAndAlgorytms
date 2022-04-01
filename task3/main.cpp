@@ -1,17 +1,9 @@
-#include <iostream>
-#include "arrayio.h"
+#include "ui.h"
 #include "lib.h"
 
 using namespace std;
 
 int main() {
-    int size = 5;
-    int* arr = new int[size];
-
-    arrInput(arr, size);
-    mergeSort(arr, size);
-    arrOutput(arr, size);
-
-    delete[] arr;
+    testSortWithUI("Simple merge sort", mergeSort);
     return 0;
 }

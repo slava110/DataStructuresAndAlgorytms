@@ -9,6 +9,8 @@ enable_testing()
 
 #add_executable(task0 task0/main.cpp)
 
+add_executable(Main main.cpp)
+
 add_executable(task0 task0/main.cpp)
 add_executable(test0 task0/test.cpp)
 
