@@ -14,7 +14,7 @@ int* arrayInputAdv(int& size) {
     srand(time(nullptr)); // NOLINT(cert-msc51-cpp)
 
     if(size == 0) {
-        cout << "Enter amount of elements to sort:" << endl << ">";
+        cout << "Enter amount of elements:" << endl << ">";
         cin >> size;
     }
 
@@ -100,32 +100,34 @@ void testSortWithUI(const string& name, const function<void (int*, int, unsigned
 /**
  *
  * @param name
- * @param searchFunc `func(array: int[], arraySize: int, toFind: int, comparisons: ULL reference, modifications: ULL reference`
+ * @param searchFunc `func(array: int[], arraySize: int, toFind: int, comparisons: ULL reference`
  */
-void testSearchWithUI(const string& name, const function<void (int*, int, unsigned long long&, unsigned long long&)>& searchFunc) {
+void testSearchWithUI(const string& name, const function<int (int*, int, int, unsigned long long&)>& searchFunc) {
     cout << "Testing " << name << " with UI" << endl;
 
     int size = 0;
     int* arr = arrayInputAdv(size);
 
-    cout << "Enter number to find:";
+    cout << "Enter number to find:" << endl << ">";
     int toFind;
     cin >> toFind;
 
     cout << "Searching for " << toFind << " in array..." << endl;
 
+    int index;
     unsigned long long comparisons = 0;
-    unsigned long long modifications = 0;
     unsigned long long time = measureTime([&]{
-        searchFunc(arr, size, comparisons, modifications);
+        index = searchFunc(arr, size, toFind, comparisons);
     });
 
-    cout << "Array sorted" << endl;
-    cout << "- Sorting time: " << time << "ms" << endl;
-    cout << "- Comparisons: " << comparisons << ", modifications: " << modifications << endl;
-    cout << "- Result array: ";
-    arrOutput(arr, size);
+    if(index >= 0) {
+        cout << "Element `" << toFind << "` found in array at index " << index << endl;
+    } else {
+        cout << "Element `" << toFind << "` not found in array" << endl;
+    }
 
+    cout << "- Searching time: " << time << "ms" << endl;
+    cout << "- Comparisons: " << comparisons << endl;
     delete[] arr;
 }
 #endif //DSAA_UI_H

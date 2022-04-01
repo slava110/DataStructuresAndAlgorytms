@@ -45,4 +45,36 @@ void testSort(const std::function<void (int*, int, unsigned long long&, unsigned
 
     delete[] arr;
 }
+
+/**
+ * Test search function. Measure execution time, amount of comparisons
+ * @param searchFunc sorting function to test
+ * @param elementsAmount amount of randomly generated elements
+ */
+void testSearch(const std::function<int (int*, int, int, unsigned long long&)> searchFunc, const int elementsAmount) {
+    int* arr = new int[elementsAmount];
+
+    arrRandomize(arr, elementsAmount);
+
+    int toFind = arr[( rand() % elementsAmount )];
+
+    unsigned long long C = 0;
+
+    int index = 0;
+    unsigned long time = measureTime([&]() {
+        index = searchFunc(arr, elementsAmount, toFind, C);
+    });
+
+    if(index >= 0) {
+        cout << "Element `" << toFind << "` found in array at index " << index << endl;
+    } else {
+        cout << "Element `" << toFind << "` not found in array" << endl;
+    }
+    cout << "Measured execution time: " << time << " ms" << endl;
+    cout << "Measured comparison ops amount: " << C << endl;
+
+    //arrOutput(arr, size);
+
+    delete[] arr;
+}
 #endif //DSAA_TESTINGUTILS_H

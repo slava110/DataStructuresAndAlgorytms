@@ -23,7 +23,11 @@ add_executable(test2 task2/test.cpp)
 add_executable(task3 task3/main.cpp)
 add_executable(test3 task3/test.cpp)
 
+add_executable(task4 task4/main.cpp)
+add_executable(test4 task4/test.cpp)
+
 add_test(Test0 test0)
 add_test(Test1 test1)
 add_test(Test2 test2)
 add_test(Test3 test3)
+add_test(Test4 test4)
