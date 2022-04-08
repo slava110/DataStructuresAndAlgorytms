@@ -47,14 +47,15 @@ void testSort(const std::function<void (int*, int, unsigned long long&, unsigned
 }
 
 /**
- * Test search function. Measure execution time, amount of comparisons
+ * Test search function with custom array filler. Measure execution time, amount of comparisons
  * @param searchFunc sorting function to test
  * @param elementsAmount amount of randomly generated elements
+ * @param arrayFiller function to fill array
  */
-void testSearch(const std::function<int (int*, int, int, unsigned long long&)> searchFunc, const int elementsAmount) {
+void testSearch(const function<int (int*, int, int, unsigned long long&)> searchFunc, const int elementsAmount, const function<void (int*, int)> arrayFiller) {
     int* arr = new int[elementsAmount];
 
-    arrRandomize(arr, elementsAmount);
+    arrayFiller(arr, elementsAmount);
 
     int toFind = arr[( rand() % elementsAmount )];
 
@@ -77,4 +78,14 @@ void testSearch(const std::function<int (int*, int, int, unsigned long long&)> s
 
     delete[] arr;
 }
+
+/**
+ * Test search function. Measure execution time, amount of comparisons
+ * @param searchFunc sorting function to test
+ * @param elementsAmount amount of randomly generated elements
+ */
+void testSearch(const function<int (int*, int, int, unsigned long long&)>& searchFunc, const int elementsAmount) {
+    testSearch(searchFunc, elementsAmount, arrRandomize);
+}
+
 #endif //DSAA_TESTINGUTILS_H

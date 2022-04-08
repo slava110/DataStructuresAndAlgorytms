@@ -2,5 +2,5 @@
 #include "ui.h"
 
 int main() {
-    testSearchWithUI("Binary search", linearSearch);
+    testSearchWithUI("Linear search", linearSearch);
 }
