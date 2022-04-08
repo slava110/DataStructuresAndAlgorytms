@@ -25,9 +25,9 @@ void testOn(string filePath, string toFind) {
 }
 
 int main() {
-    testOn(R"(C:\Users\mirea\CLionProjects\DataStructuresAndAlgorytms\book1.txt)", "синяя шинель");
+    testOn(R"(../book1.txt)", "синяя шинель");
     cout << "=======" << endl;
-    testOn(R"(C:\Users\mirea\CLionProjects\DataStructuresAndAlgorytms\book2.txt)", "Теща");
+    testOn(R"(../book2.txt)", "Теща");
     cout << "=======" << endl;
-    testOn(R"(C:\Users\mirea\CLionProjects\DataStructuresAndAlgorytms\book3.txt)", "вектор структур Operation");
+    testOn(R"(../book3.txt)", "вектор структур Operation");
 }
