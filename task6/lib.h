@@ -2,6 +2,17 @@
 #define DSAA_LIB_H
 
 #include <iostream>
+#include <fstream>
+//#include <Windows.h>
+
+std::string readFile(const std::string& path) {
+    std::ifstream input_file(path);
+    if (!input_file.is_open()) {
+        std::cerr << "Could not open the file - '" << path << "'" << std::endl;
+        exit(EXIT_FAILURE);
+    }
+    return {(std::istreambuf_iterator<char>(input_file)), std::istreambuf_iterator<char>()};
+}
 
 // Function to implement the KMP algorithm
 int searchKMP(std::string text, std::string pattern, unsigned long long& C, unsigned long long& M) {
