@@ -32,6 +32,12 @@ add_executable(test5 task5/test.cpp)
 add_executable(task6 task6/main.cpp)
 add_executable(test6 task6/test.cpp)
 
+add_executable(task7 task7/main.cpp)
+
+add_executable(task8 task8/main.cpp)
+
+add_executable(task9 task9/main.cpp)
+
 add_test(Test0 test0)
 add_test(Test1 test1)
 add_test(Test2 test2)
